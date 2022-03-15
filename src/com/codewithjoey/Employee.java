@@ -1,21 +1,31 @@
 package com.codewithjoey;
 
 public class Employee {
+    //INSTANT FIELDS
     private int baseSalary;
     private int hourlyRate;
+
+    //STATIC FIELDS only for employee class references
+    public static int numberOfEmployees;
 
     //CONSTRUCTORS
     public Employee(int baseSalary, int hourlyRate){
         //using setters instead of this.x
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
+        numberOfEmployees++;
     }
     public Employee(int baseSalary){ //overloading a constructor
         //using setters instead of this.x
         this(baseSalary, 0);
     }
 
-    //METHODS
+    // STATIC METHODS - only see other static methods
+    public static void printNumberOfEmployees(){
+        System.out.println(numberOfEmployees);
+    }
+
+    // METHODS
     public int calculateWage(int extraHours){
         return baseSalary + (extraHours * getHourlyRate());
 
