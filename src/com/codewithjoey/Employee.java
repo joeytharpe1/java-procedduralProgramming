@@ -10,6 +10,10 @@ public class Employee {
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
     }
+    public Employee(int baseSalary){ //overloading a constructor
+        //using setters instead of this.x
+        this(baseSalary, 0);
+    }
 
     //METHODS
     public int calculateWage(int extraHours){
@@ -28,7 +32,7 @@ public class Employee {
     }
 
     private void setHourlyRate(int hourlyRate) {
-        if(hourlyRate <= 0)
+        if(hourlyRate < 0)
             throw new IllegalArgumentException("Hourly rate cannot be 0 or less");
         this.hourlyRate = hourlyRate;
     }
